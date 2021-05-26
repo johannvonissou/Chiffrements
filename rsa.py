@@ -20,6 +20,12 @@ class RSA:
     def get_clepri(self):
         return self.__clepri
 
+    def set_clepub(self, cle):
+        self.__clepub = cle
+
+    def set_clepri(self, cle):
+        self.__clepri = cle
+
     def __pgcd(self, a, b):
         if a < b:
             (a, b) = (b, a)
@@ -96,5 +102,5 @@ class RSA:
             chaine += chr(self.calcul_nombre(int(c), self.__clepri))
         return chaine
 
-    def __init__(self):
-        self.generation_cles()
+    def __init__(self, keygen=True):
+        if keygen: self.generation_cles()
